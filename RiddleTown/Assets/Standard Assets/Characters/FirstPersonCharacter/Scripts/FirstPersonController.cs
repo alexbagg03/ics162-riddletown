@@ -27,7 +27,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_StepInterval;
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private AudioClip m_LandSound;
+        [SerializeField] private AudioClip m_CameraSound;// the sound played when character touches back on ground.
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -65,7 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
             
         }
-
+        //Note to self fix bug that cancels camera audio
 
         // Update is called once per frame
         private void Update()
@@ -116,15 +117,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (left_down && right_down && !flash)
             {
                 flashColor = flashImage.GetComponent<Image>().color;
-                flashImage.SetActive(true);
-                flash = true;
-                left_down = false;
+                PlayCameraSound();
+                Invoke("makefalse", 0.5f);
+
             }
 
             if (flash)
             {
                 flashColor.a -= 0.01f;
-                print(flashColor.a);
                 flashImage.GetComponent<Image>().color = flashColor;
                 if (flashColor.a <= 0)
                 {
@@ -194,6 +194,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource.Play();
         }
 
+        private void PlayCameraSound()
+        {
+            m_AudioSource.clip = m_CameraSound;
+            m_AudioSource.Play();
+        }
+
 
         private void ProgressStepCycle(float speed)
         {
@@ -252,6 +258,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
             m_Camera.transform.localPosition = newCameraPosition;
+        }
+
+        private void makefalse()
+        {
+            flashImage.SetActive(true);
+            flash = true;
+            left_down = false;
         }
 
 
