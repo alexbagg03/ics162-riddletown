@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -42,6 +43,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
         public GameObject cameraOverlay;
+        public GameObject canvas;
+        public GameObject flashImage;
+        private bool flash = false;
+        private bool left_down;
+        private bool right_down;
+        private Color flashColor;
 
         // Use this for initialization
         private void Start()
@@ -56,6 +63,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            
         }
 
 
@@ -86,11 +94,46 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if(Input.GetButtonDown("Fire2") && !cameraOverlay.activeSelf)
             {
                 cameraOverlay.SetActive(true);
+                right_down = true;
             }
 
             if (Input.GetButtonUp("Fire2"))
             {
                 cameraOverlay.SetActive(false);
+                right_down = false;
+            }
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                left_down = true;
+            }
+
+            if (Input.GetButtonUp("Fire1"))
+            {
+                left_down = false;
+            }
+
+            if (left_down && right_down && !flash)
+            {
+                flashColor = flashImage.GetComponent<Image>().color;
+                flashImage.SetActive(true);
+                flash = true;
+                left_down = false;
+            }
+
+            if (flash)
+            {
+                flashColor.a -= 0.01f;
+                print(flashColor.a);
+                flashImage.GetComponent<Image>().color = flashColor;
+                if (flashColor.a <= 0)
+                {
+                    flashColor.a = 1;
+                    flashImage.GetComponent<Image>().color = flashColor;
+                    flashImage.SetActive(false);
+                    flash = false;
+                }
+
             }
         }
 
