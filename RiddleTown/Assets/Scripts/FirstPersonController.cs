@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.Utility;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace UnityStandardAssets.Characters.FirstPerson
-{
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
+
+
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
@@ -50,6 +49,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool left_down;
         private bool right_down;
         private Color flashColor;
+        public GameObject gamemanager;
 
         // Use this for initialization
         private void Start()
@@ -118,7 +118,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 flashColor = flashImage.GetComponent<Image>().color;
                 PlayCameraSound();
-                Invoke("makefalse", 0.5f);
+                Invoke("TakePhoto", 0.5f);
 
             }
 
@@ -260,11 +260,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
-        private void makefalse()
+        private void TakePhoto()
         {
             flashImage.SetActive(true);
             flash = true;
             left_down = false;
+        gamemanager.GetComponent<GameManager>().TookPhoto();
+            
         }
 
 
@@ -323,4 +325,3 @@ namespace UnityStandardAssets.Characters.FirstPerson
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
     }
-}
