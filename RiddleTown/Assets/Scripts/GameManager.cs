@@ -3,25 +3,139 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    private int currentRiddle;
+
+    public int currentRiddle;
+
+    //Canvase Objects that display the current riddle
     public GameObject riddle1;
-    public GameObject presentationRiddle;
-    public GameObject RD1Human;
-    public GameObject RD1barrel;
+    public GameObject riddle2;
+    public GameObject riddle3;
+
+    //Model Objects (solutions) found in the Riddle Town.
+    public GameObject Firebarrel; //solution to riddle 1
+    public GameObject WaterTower; //solution to riddle 2
+    public GameObject Crane; //solution to riddle 3
+
     [SerializeField] private AudioClip wrong;           // the sound played when character leaves the ground.
     [SerializeField] private AudioClip correct;
     private AudioSource m_AudioSource;
+
+    //Used to calculate the frustrum of the camera and to determine if an object's collider is in the frustrum
+    private Camera cam;
+    private Plane[] planes;
+    public Collider anObjCollider;
 
     // Use this for initialization
     void Start () {
         currentRiddle = 1;
         m_AudioSource = GetComponent<AudioSource>();
-
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("riddle"))
+
+        DisplayRiddle();
+	}
+
+    public void TookPhoto()
+    {
+        cam = Camera.main;
+        planes = GeometryUtility.CalculateFrustumPlanes(cam);
+        if (currentRiddle == 1)
+        {
+            anObjCollider = Firebarrel.GetComponent<Collider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, Firebarrel.transform.position, out hit);
+                if (hit.transform.name == "Solution1")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+                
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
+        else if (currentRiddle == 2)
+        {
+            anObjCollider = WaterTower.GetComponent<Collider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, WaterTower.transform.position, out hit);
+                if (hit.transform.name == "Solution2")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
+        else if (currentRiddle == 3)
+        {
+            anObjCollider = Crane.GetComponent<Collider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, Crane.transform.position, out hit);
+                if (hit.transform.name == "Solution3")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
+
+
+    }
+
+    private void PlayCorrectSound()
+    {
+        m_AudioSource.clip = correct;
+        m_AudioSource.Play();
+    }
+
+    private void PlayWrongSound()
+    {
+        m_AudioSource.clip = wrong;
+        m_AudioSource.Play();
+    }
+
+    //Displays current riddle on the screen
+    private void DisplayRiddle()
+    {
+        if (Input.GetButtonDown("riddle"))
         {
             if (currentRiddle == 1)
             {
@@ -38,56 +152,29 @@ public class GameManager : MonoBehaviour {
 
             if (currentRiddle == 2)
             {
-                if (presentationRiddle.activeSelf)
+                if (riddle2.activeSelf)
                 {
-                    presentationRiddle.SetActive(false);
+                    riddle2.SetActive(false);
                 }
 
                 else
                 {
-                    presentationRiddle.SetActive(true);
+                    riddle2.SetActive(true);
+                }
+            }
+
+            if (currentRiddle == 3)
+            {
+                if (riddle3.activeSelf)
+                {
+                    riddle3.SetActive(false);
+                }
+
+                else
+                {
+                    riddle3.SetActive(true);
                 }
             }
         }
-
-        if (Input.GetButtonDown("presentation"))
-        {
-            PlayCorrectSound();
-        }
-	}
-
-    public void TookPhoto()
-    {
-        if (currentRiddle == 1)
-        {
-            Vector3 screenPoint = Camera.main.WorldToViewportPoint(RD1Human.transform.position);
-            bool onScreen1 = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-            screenPoint = Camera.main.WorldToViewportPoint(RD1Human.transform.position);
-            bool onScreen2 = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-
-            if (onScreen1 && onScreen2)
-            {
-                PlayCorrectSound();
-                currentRiddle = 2;
-            }
-
-            else
-            {
-                PlayWrongSound();
-            }
-        }
-
-    }
-
-    private void PlayCorrectSound()
-    {
-        m_AudioSource.clip = correct;
-        m_AudioSource.Play();
-    }
-
-    private void PlayWrongSound()
-    {
-        m_AudioSource.clip = wrong;
-        m_AudioSource.Play();
     }
 }

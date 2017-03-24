@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Resizes an image to be the same size as teh canvas
 public class ImageResizer : MonoBehaviour {
     public GameObject canvas;
 
