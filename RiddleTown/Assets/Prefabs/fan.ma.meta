@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 763c10fd43e5d5343a22a38551447433
+timeCreated: 1490390253
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: fan
+    100002: //RootNode
+    100004: fan_body
+    100006: house9
+    100008: pCone1
+    100010: pCube1
+    100012: pCube2
+    100014: pCube3
+    100016: pCube34
+    100018: pCube35
+    100020: pCube36
+    100022: pCube37
+    100024: pCube4
+    100026: pCube42
+    100028: pCube43
+    100030: pCube44
+    100032: pCube45
+    100034: pCube46
+    100036: pCylinder1
+    100038: pCylinder10
+    100040: pCylinder11
+    100042: pCylinder12
+    100044: pCylinder13
+    100046: pCylinder14
+    100048: pCylinder15
+    100050: pCylinder2
+    100052: pCylinder3
+    100054: pCylinder4
+    100056: pCylinder5
+    100058: pCylinder6
+    100060: pCylinder7
+    100062: pCylinder8
+    100064: pCylinder9
+    100066: polySurface1
+    100068: polySurface2
+    100070: polySurface3
+    100072: polySurface4
+    100074: pPipe1
+    100076: pPipe2
+    100078: pPipe3
+    100080: pPipe4
+    100082: pPipe5
+    100084: pPlane1
+    100086: propellers
+    100088: pSphere1
+    100090: pSphere12
+    100092: pSphere2
+    100094: pSphere3
+    100096: pSphere4
+    100098: store
+    100100: transform1
+    100102: transform11
+    100104: transform12
+    100106: transform13
+    100108: transform14
+    100110: transform15
+    100112: transform16
+    100114: transform17
+    100116: transform18
+    100118: transform19
+    100120: transform2
+    100122: transform20
+    100124: transform21
+    100126: transform22
+    100128: transform23
+    100130: transform24
+    100132: transform25
+    100134: transform26
+    100136: transform27
+    100138: transform28
+    100140: transform29
+    100142: transform3
+    100144: transform30
+    100146: transform31
+    100148: transform32
+    100150: transform33
+    100152: transform34
+    100154: transform35
+    100156: transform36
+    100158: transform37
+    100160: transform38
+    100162: transform39
+    100164: transform4
+    100166: transform40
+    100168: transform41
+    100170: transform42
+    100172: transform43
+    100174: transform44
+    100176: transform45
+    100178: transform46
+    100180: transform47
+    100182: transform5
+    100184: transform6
+    100186: transform7
+    100188: transform8
+    100190: transform9
+    100192: tree
+    400000: fan
+    400002: //RootNode
+    400004: fan_body
+    400006: house9
+    400008: pCone1
+    400010: pCube1
+    400012: pCube2
+    400014: pCube3
+    400016: pCube34
+    400018: pCube35
+    400020: pCube36
+    400022: pCube37
+    400024: pCube4
+    400026: pCube42
+    400028: pCube43
+    400030: pCube44
+    400032: pCube45
+    400034: pCube46
+    400036: pCylinder1
+    400038: pCylinder10
+    400040: pCylinder11
+    400042: pCylinder12
+    400044: pCylinder13
+    400046: pCylinder14
+    400048: pCylinder15
+    400050: pCylinder2
+    400052: pCylinder3
+    400054: pCylinder4
+    400056: pCylinder5
+    400058: pCylinder6
+    400060: pCylinder7
+    400062: pCylinder8
+    400064: pCylinder9
+    400066: polySurface1
+    400068: polySurface2
+    400070: polySurface3
+    400072: polySurface4
+    400074: pPipe1
+    400076: pPipe2
+    400078: pPipe3
+    400080: pPipe4
+    400082: pPipe5
+    400084: pPlane1
+    400086: propellers
+    400088: pSphere1
+    400090: pSphere12
+    400092: pSphere2
+    400094: pSphere3
+    400096: pSphere4
+    400098: store
+    400100: transform1
+    400102: transform11
+    400104: transform12
+    400106: transform13
+    400108: transform14
+    400110: transform15
+    400112: transform16
+    400114: transform17
+    400116: transform18
+    400118: transform19
+    400120: transform2
+    400122: transform20
+    400124: transform21
+    400126: transform22
+    400128: transform23
+    400130: transform24
+    400132: transform25
+    400134: transform26
+    400136: transform27
+    400138: transform28
+    400140: transform29
+    400142: transform3
+    400144: transform30
+    400146: transform31
+    400148: transform32
+    400150: transform33
+    400152: transform34
+    400154: transform35
+    400156: transform36
+    400158: transform37
+    400160: transform38
+    400162: transform39
+    400164: transform4
+    400166: transform40
+    400168: transform41
+    400170: transform42
+    400172: transform43
+    400174: transform44
+    400176: transform45
+    400178: transform46
+    400180: transform47
+    400182: transform5
+    400184: transform6
+    400186: transform7
+    400188: transform8
+    400190: transform9
+    400192: tree
+    2300000: fan_body
+    2300002: propellers
+    3300000: fan_body
+    3300002: propellers
+    4300000: propellers
+    4300002: fan_body
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: fan
+        weight: 1
+      - path: fan/fan_body
+        weight: 1
+      - path: fan/propellers
+        weight: 1
+      - path: house9
+        weight: 1
+      - path: house9/transform12
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform23
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform8
+        weight: 1
+      - path: pCube2
+        weight: 1
+      - path: pCube2/transform9
+        weight: 1
+      - path: pCube3
+        weight: 1
+      - path: pCube3/transform7
+        weight: 1
+      - path: pCube4
+        weight: 1
+      - path: pCube4/transform13
+        weight: 1
+      - path: pCube34
+        weight: 1
+      - path: pCube34/transform39
+        weight: 1
+      - path: pCube35
+        weight: 1
+      - path: pCube35/transform32
+        weight: 1
+      - path: pCube36
+        weight: 1
+      - path: pCube36/transform30
+        weight: 1
+      - path: pCube37
+        weight: 1
+      - path: pCube37/transform29
+        weight: 1
+      - path: pCube42
+        weight: 1
+      - path: pCube42/transform45
+        weight: 1
+      - path: pCube43
+        weight: 1
+      - path: pCube43/transform43
+        weight: 1
+      - path: pCube44
+        weight: 1
+      - path: pCube44/transform40
+        weight: 1
+      - path: pCube45
+        weight: 1
+      - path: pCube45/transform41
+        weight: 1
+      - path: pCube46
+        weight: 1
+      - path: pCube46/transform42
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform11
+        weight: 1
+      - path: pCylinder3
+        weight: 1
+      - path: pCylinder3/transform24
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder4/transform22
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pCylinder5/transform21
+        weight: 1
+      - path: pCylinder6
+        weight: 1
+      - path: pCylinder6/transform20
+        weight: 1
+      - path: pCylinder7
+        weight: 1
+      - path: pCylinder7/transform19
+        weight: 1
+      - path: pCylinder8
+        weight: 1
+      - path: pCylinder8/transform18
+        weight: 1
+      - path: pCylinder9
+        weight: 1
+      - path: pCylinder9/transform17
+        weight: 1
+      - path: pCylinder10
+        weight: 1
+      - path: pCylinder10/transform16
+        weight: 1
+      - path: pCylinder11
+        weight: 1
+      - path: pCylinder11/transform15
+        weight: 1
+      - path: pCylinder12
+        weight: 1
+      - path: pCylinder12/transform14
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: pCylinder13/transform31
+        weight: 1
+      - path: pCylinder14
+        weight: 1
+      - path: pCylinder14/transform44
+        weight: 1
+      - path: pCylinder15
+        weight: 1
+      - path: pCylinder15/transform46
+        weight: 1
+      - path: pPipe1
+        weight: 1
+      - path: pPipe1/transform26
+        weight: 1
+      - path: pPipe2
+        weight: 1
+      - path: pPipe2/transform38
+        weight: 1
+      - path: pPipe3
+        weight: 1
+      - path: pPipe3/transform37
+        weight: 1
+      - path: pPipe4
+        weight: 1
+      - path: pPipe4/polySurface1
+        weight: 1
+      - path: pPipe4/polySurface1/transform36
+        weight: 1
+      - path: pPipe4/polySurface2
+        weight: 1
+      - path: pPipe4/polySurface2/transform35
+        weight: 1
+      - path: pPipe4/transform27
+        weight: 1
+      - path: pPipe5
+        weight: 1
+      - path: pPipe5/polySurface3
+        weight: 1
+      - path: pPipe5/polySurface3/transform34
+        weight: 1
+      - path: pPipe5/polySurface4
+        weight: 1
+      - path: pPipe5/polySurface4/transform33
+        weight: 1
+      - path: pPipe5/transform28
+        weight: 1
+      - path: pPlane1
+        weight: 1
+      - path: pPlane1/transform25
+        weight: 1
+      - path: pSphere12
+        weight: 1
+      - path: pSphere12/transform47
+        weight: 1
+      - path: store
+        weight: 1
+      - path: store/transform6
+        weight: 1
+      - path: tree
+        weight: 1
+      - path: tree/pCylinder1
+        weight: 1
+      - path: tree/pCylinder1/transform5
+        weight: 1
+      - path: tree/pSphere1
+        weight: 1
+      - path: tree/pSphere1/transform4
+        weight: 1
+      - path: tree/pSphere2
+        weight: 1
+      - path: tree/pSphere2/transform2
+        weight: 1
+      - path: tree/pSphere3
+        weight: 1
+      - path: tree/pSphere3/transform3
+        weight: 1
+      - path: tree/pSphere4
+        weight: 1
+      - path: tree/pSphere4/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
