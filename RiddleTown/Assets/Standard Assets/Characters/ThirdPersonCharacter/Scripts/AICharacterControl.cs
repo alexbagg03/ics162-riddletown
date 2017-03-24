@@ -40,7 +40,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 current_destination++;
 
-                if(current_destination == 5)
+                if(current_destination >= target.childCount)
                 {
                     current_destination = 0;
                 }

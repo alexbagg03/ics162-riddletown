@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour {
     public GameObject riddle1;
     public GameObject riddle2;
     public GameObject riddle3;
+    public GameObject riddle4;
 
     //Model Objects (solutions) found in the Riddle Town.
     public GameObject Firebarrel; //solution to riddle 1
     public GameObject WaterTower; //solution to riddle 2
-    public GameObject Crane; //solution to riddle 3
+    public GameObject RunningMan; //solution to riddle 3
+    public GameObject Crane; //solution to riddle 4
 
+    //Audio that plays when a player tries to solve a riddle
     [SerializeField] private AudioClip wrong;           // the sound played when character leaves the ground.
     [SerializeField] private AudioClip correct;
     private AudioSource m_AudioSource;
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour {
         DisplayRiddle();
 	}
 
+    //Player has taken a photo. Game Manager checks if object is in camera's frustrum then does a linecast to make sure nothing is blocking object
     public void TookPhoto()
     {
         cam = Camera.main;
@@ -93,12 +97,37 @@ public class GameManager : MonoBehaviour {
 
         else if (currentRiddle == 3)
         {
+            anObjCollider = RunningMan.GetComponent<BoxCollider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, RunningMan.transform.position, out hit);
+                if (hit.transform.name == "Solution3")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
+        else if (currentRiddle == 4)
+        {
             anObjCollider = Crane.GetComponent<Collider>();
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
                 Physics.Linecast(Camera.main.transform.position, Crane.transform.position, out hit);
-                if (hit.transform.name == "Solution3")
+                if (hit.transform.name == "Solution4")
                 {
                     PlayCorrectSound();
                     currentRiddle++;
@@ -173,6 +202,19 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     riddle3.SetActive(true);
+                }
+            }
+
+            if (currentRiddle == 4)
+            {
+                if (riddle4.activeSelf)
+                {
+                    riddle4.SetActive(false);
+                }
+
+                else
+                {
+                    riddle4.SetActive(true);
                 }
             }
         }
