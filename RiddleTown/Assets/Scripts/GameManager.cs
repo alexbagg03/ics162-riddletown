@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour {
     private Plane[] planes;
     public Collider anObjCollider;
 
+    private int layermask = ~(1 << 8);
+
     // Use this for initialization
     void Start () {
         currentRiddle = 1;
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, Firebarrel.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, Firebarrel.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution1")
                 {
                     PlayCorrectSound();
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, WaterTower.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, WaterTower.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution2")
                 {
                     PlayCorrectSound();
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, RunningMan.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, RunningMan.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution3")
                 {
                     PlayCorrectSound();
@@ -133,7 +135,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, Crane.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, Crane.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution4")
                 {
                     PlayCorrectSound();
@@ -158,7 +160,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, Windmill.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, Windmill.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution5")
                 {
                     PlayCorrectSound();
@@ -183,7 +185,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, Bike.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, Bike.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution6")
                 {
                     PlayCorrectSound();
@@ -208,7 +210,7 @@ public class GameManager : MonoBehaviour {
             if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
             {
                 RaycastHit hit;
-                Physics.Linecast(Camera.main.transform.position, Key.transform.position, out hit);
+                Physics.Linecast(Camera.main.transform.position, Key.transform.position, out hit, layermask);
                 if (hit.transform.name == "Solution7")
                 {
                     PlayCorrectSound();
