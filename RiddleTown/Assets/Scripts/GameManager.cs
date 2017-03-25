@@ -11,12 +11,19 @@ public class GameManager : MonoBehaviour {
     public GameObject riddle2;
     public GameObject riddle3;
     public GameObject riddle4;
+    public GameObject riddle5;
+    public GameObject riddle6;
+    public GameObject riddle7;
+    public GameObject finished;
 
     //Model Objects (solutions) found in the Riddle Town.
     public GameObject Firebarrel; //solution to riddle 1
     public GameObject WaterTower; //solution to riddle 2
     public GameObject RunningMan; //solution to riddle 3
     public GameObject Crane; //solution to riddle 4
+    public GameObject Windmill; //solution to riddle 5
+    public GameObject Bike; //solution to riddle 6
+    public GameObject Key; //solution to riddle 7
 
     //Audio that plays when a player tries to solve a riddle
     [SerializeField] private AudioClip wrong;           // the sound played when character leaves the ground.
@@ -145,6 +152,81 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        else if (currentRiddle == 5)
+        {
+            anObjCollider = Windmill.GetComponent<BoxCollider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, Windmill.transform.position, out hit);
+                if (hit.transform.name == "Solution5")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
+        else if (currentRiddle == 6)
+        {
+            anObjCollider = Bike.GetComponent<BoxCollider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, Bike.transform.position, out hit);
+                if (hit.transform.name == "Solution6")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
+        else if (currentRiddle == 7)
+        {
+            anObjCollider = Key.GetComponent<BoxCollider>();
+            if (GeometryUtility.TestPlanesAABB(planes, anObjCollider.bounds))
+            {
+                RaycastHit hit;
+                Physics.Linecast(Camera.main.transform.position, Key.transform.position, out hit);
+                if (hit.transform.name == "Solution7")
+                {
+                    PlayCorrectSound();
+                    currentRiddle++;
+                }
+
+                else
+                {
+                    PlayWrongSound();
+                }
+            }
+
+            else
+            {
+                PlayWrongSound();
+            }
+        }
+
 
 
     }
@@ -215,6 +297,58 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     riddle4.SetActive(true);
+                }
+            }
+
+            if (currentRiddle == 5)
+            {
+                if (riddle5.activeSelf)
+                {
+                    riddle5.SetActive(false);
+                }
+
+                else
+                {
+                    riddle5.SetActive(true);
+                }
+            }
+
+            if (currentRiddle == 6)
+            {
+                if (riddle6.activeSelf)
+                {
+                    riddle6.SetActive(false);
+                }
+
+                else
+                {
+                    riddle6.SetActive(true);
+                }
+            }
+
+            if (currentRiddle == 7)
+            {
+                if (riddle7.activeSelf)
+                {
+                    riddle7.SetActive(false);
+                }
+
+                else
+                {
+                    riddle7.SetActive(true);
+                }
+            }
+
+            if (currentRiddle == 8)
+            {
+                if (finished.activeSelf)
+                {
+                    finished.SetActive(false);
+                }
+
+                else
+                {
+                    finished.SetActive(true);
                 }
             }
         }
